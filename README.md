@@ -10,9 +10,10 @@ Será possível cadastrar usuário (cliente ou funcionário), produto e realizar
 - [Igor Freire de Morais](https://github.com/IgorFreiredeMorais)
 
 ## Tecnologias Utilizadas:
-- Vue.js
-- Node.js
-- MongoDB
+- Vue.js 2.6.11
+- Node.js 14.18.0
+- Express.js 4.17.1
+- MongoDB 5.0.3
 
 ## Como executar:
 TODO
