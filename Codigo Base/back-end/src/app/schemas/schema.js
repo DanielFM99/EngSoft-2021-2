@@ -1,18 +1,19 @@
 import mongoose from '@/database';
 
-const ExemploSchema = new mongoose.Schema({
-  titulo: {
+const project = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  description: {
     type: String,
     required: true,
   },
-  descricao: {
-    type: String,
-    required: true,
-  },
-  data: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-export default mongoose.model('Exemplo', ExemploSchema);
+export default mongoose.model('project', project);
