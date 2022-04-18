@@ -148,8 +148,29 @@ router.post('/adicionarVenda', (req, res) => {
 
 router.get('/listarVendas', (req, res) => {
   venda
-    .find()
+    .aggregate([
+      {
+        $lookup: {
+          from: 'clientes',
+          localField: 'nomeCliente',
+          foreignField: '_id',
+          as: 'cliente',
+        },
+      },
+      {
+        $lookup: {
+          from: 'funcionarios',
+          localField: 'nomeFuncionario',
+          foreignField: '_id',
+          as: 'funcionario',
+        },
+      },
+    ])
     .then((vendas) => {
+      vendas.map((e, i) => {
+        e.nomeCliente = e.cliente[0].nome;
+        e.nomeFuncionario = e.funcionario[0].nome;
+      });
       res.send(vendas);
     })
     .catch((error) => {
