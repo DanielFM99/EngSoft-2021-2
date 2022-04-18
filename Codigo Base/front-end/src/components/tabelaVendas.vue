@@ -47,7 +47,7 @@
     >
       <template v-slot:cell(acoes)="dataVendas" class="botoes">
         <div>
-          <button class="button">
+          <button class="button" @click="mudarRota(dataVendas.item)">
             <b-icon-pencil-square></b-icon-pencil-square>
           </button>
         </div>
@@ -98,6 +98,10 @@ export default {
     abrirModalVendas(id) {
       this.id = id;
       this.$bvModal.show("modal-excluir-venda");
+    },
+
+    mudarRota(data) {
+      this.$router.push(`/vendas/editar/${data._id}`);
     },
 
     excluir() {
