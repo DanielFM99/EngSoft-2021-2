@@ -24,9 +24,9 @@ router.post('/loginCliente', (req, res) => {
 });
 
 router.post('/adicionarCliente', (req, res) => {
-  const { nome, data, cpf, email, senha } = req.body;
+  const { nome, data, cpf, email, senha, telefone, genero } = req.body;
   cliente
-    .create({ nome, data, cpf, email, senha })
+    .create({ nome, data, cpf, email, senha, telefone, genero })
     .then((clientes) => {
       res.status(200).send(clientes);
     })
@@ -59,11 +59,11 @@ router.get('/buscarCliente/:clienteId', (req, res) => {
 });
 
 router.put('/editarCliente/:clienteId', (req, res) => {
-  const { nome, data, cpf, email } = req.body;
+  const { nome, data, cpf, email, senha, telefone, genero } = req.body;
   cliente
     .findByIdAndUpdate(
       req.params.clienteId,
-      { nome, data, cpf, email },
+      { nome, data, cpf, email, senha, telefone, genero },
       { new: true },
     )
     .then((cliente) => {
@@ -88,9 +88,9 @@ router.delete('/excluirCliente/:clienteId', (req, res) => {
 });
 
 router.post('/adicionarFuncionario', (req, res) => {
-  const { nome, data, cpf, email, salario } = req.body;
+  const { nome, data, cpf, email, senha, telefone, genero, salario } = req.body;
   funcionario
-    .create({ nome, data, cpf, email, salario })
+    .create({ nome, data, cpf, email, senha, telefone, genero, salario })
     .then((funcionarios) => {
       res.status(200).send(funcionarios);
     })
@@ -123,11 +123,11 @@ router.get('/buscarFuncionario/:funcionarioId', (req, res) => {
 });
 
 router.put('/editarFuncionario/:funcionarioId', (req, res) => {
-  const { nome, data, cpf, email, salario } = req.body;
+  const { nome, data, cpf, email, senha, telefone, genero, salario } = req.body;
   funcionario
     .findByIdAndUpdate(
       req.params.funcionarioId,
-      { nome, data, cpf, email, salario },
+      { nome, data, cpf, email, senha, telefone, genero, salario },
       { new: true },
     )
     .then((funcionarios) => {
@@ -185,14 +185,14 @@ router.get('/listarVendas', (req, res) => {
       },
     ])
     .then((vendas) => {
-      vendas.map((e, i) => {
+      vendas.map((e) => {
         e.nomeCliente = e.cliente[0].nome;
         e.nomeFuncionario = e.funcionario[0].nome;
       });
       res.send(vendas);
     })
     .catch((error) => {
-      console.log('Erro!');
+      console.log('Erro!', error);
     });
 });
 

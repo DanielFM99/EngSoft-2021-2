@@ -17,6 +17,18 @@ const funcionario = new mongoose.Schema({
     type: String,
     required: true,
   },
+  senha: {
+    type: String,
+    required: true,
+  },
+  genero: {
+    type: String,
+    required: true,
+  },
+  telefone: {
+    type: String,
+    required: true,
+  },
   salario: {
     type: String,
     required: true,

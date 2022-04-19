@@ -21,6 +21,14 @@ const cliente = new mongoose.Schema({
     type: String,
     required: true,
   },
+  genero: {
+    type: String,
+    required: true,
+  },
+  telefone: {
+    type: String,
+    required: true,
+  },
 });
 
 export default mongoose.model('cliente', cliente);

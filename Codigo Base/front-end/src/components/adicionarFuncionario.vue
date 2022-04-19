@@ -79,6 +79,46 @@
             ></b-form-input>
           </b-col>
         </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Genero:</label>
+            <b-form-select
+              :options="generoOptions"
+              v-model="funcionario.genero"
+              :class="{
+                erro: submitted && $v.funcionario.genero.$error,
+              }"
+            ></b-form-select>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Telefone:</label>
+            <b-form-input
+              type="text"
+              v-mask="telefoneMask"
+              v-model="funcionario.telefone"
+              :class="{
+                erro: submitted && $v.funcionario.telefone.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Senha:</label>
+            <b-form-input
+              type="text"
+              v-model="funcionario.senha"
+              :class="{
+                erro: submitted && $v.funcionario.senha.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
       </b-form>
       <b-row class="alinhamentoLinha mt-5 mb-5">
         <button class="alinhamentoBtn btnCancelar" @click="fecharModal">
@@ -102,7 +142,7 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate/lib/validators";
+import { required, email, maxLength } from "vuelidate/lib/validators";
 import Navbar from "@/components/navBar.vue";
 import ModalCancelar from "@/components/modalCancelar";
 import ModalConfirmar from "@/components/modalConfirmar";
@@ -118,6 +158,7 @@ export default {
   data() {
     return {
       cpfMask: "###.###.###-##",
+      telefoneMask: "(##)#####-####",
       submitted: false,
       funcionario: {
         nome: "",
@@ -125,7 +166,16 @@ export default {
         email: "",
         data: "",
         salario: "",
+        genero: "",
+        telefone: "",
+        senha: "",
       },
+      generoOptions: [
+        { value: "", text: "Escolha um genero", disabled: true },
+        { value: "M", text: "Masculino" },
+        { value: "F", text: "Feminino" },
+        { value: "O", text: "Outro" },
+      ],
 
       show: true,
     };
@@ -134,10 +184,13 @@ export default {
 
   validations: {
     funcionario: {
-      nome: { required },
+      nome: { required, maxLength: maxLength(50) },
       cpf: { required },
       data: { required },
-      email: { required, email },
+      email: { required, email, maxLength: maxLength(100) },
+      senha: { required, maxLength: maxLength(10) },
+      telefone: { required },
+      genero: { required },
       salario: { required },
     },
   },
@@ -165,6 +218,9 @@ export default {
         data: this.funcionario.data,
         cpf: this.funcionario.cpf,
         email: this.funcionario.email,
+        senha: this.funcionario.senha,
+        telefone: this.funcionario.telefone,
+        genero: this.funcionario.genero,
         salario: this.funcionario.salario,
       })
         .then(() => {
@@ -186,6 +242,9 @@ export default {
       this.funcionario.cpf = "";
       this.funcionario.data = "";
       this.funcionario.email = "";
+      this.funcionario.senha = "";
+      this.funcionario.genero = "";
+      this.funcionario.telefone = "";
       this.funcionario.salario = "";
       this.$bvModal.hide("modal-cancelar");
     },

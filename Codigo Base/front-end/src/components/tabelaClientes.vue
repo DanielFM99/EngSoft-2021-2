@@ -156,6 +156,18 @@ export default {
           thClass: "th-empresa",
         },
         {
+          key: "genero",
+          label: "Genero",
+          tdClass: "empresa",
+          thClass: "th-empresa",
+        },
+        {
+          key: "telefone",
+          label: "Telefone",
+          tdClass: "empresa",
+          thClass: "th-empresa",
+        },
+        {
           key: "acoes",
           label: "Ações",
           tdClass: "acoes",

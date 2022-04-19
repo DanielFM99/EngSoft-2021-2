@@ -50,6 +50,34 @@
             <b-form-input type="text" v-model="dados.salario"></b-form-input>
           </b-col>
         </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Genero:</label>
+            <b-form-select
+              :options="generoOptions"
+              v-model="dados.genero"
+            ></b-form-select>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Telefone:</label>
+            <b-form-input
+              type="text"
+              v-mask="telefoneMask"
+              v-model="dados.telefone"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Senha:</label>
+            <b-form-input type="text" v-model="dados.senha"></b-form-input>
+          </b-col>
+        </b-row>
       </b-form>
       <b-row class="alinhamentoLinha mt-5 mb-5">
         <button class="alinhamentoBtn btnCancelar" @click="fecharModal">
@@ -89,9 +117,15 @@ export default {
   data() {
     return {
       cpfMask: "###.###.###-##",
+      telefoneMask: "(##)#####-####",
       submitted: false,
       dados: {},
-
+      generoOptions: [
+        { value: "", text: "Escolha um genero", disabled: true },
+        { value: "M", text: "Masculino" },
+        { value: "F", text: "Feminino" },
+        { value: "O", text: "Outro" },
+      ],
       show: true,
     };
   },
@@ -117,6 +151,9 @@ export default {
           data: this.dados.data,
           cpf: this.dados.cpf,
           email: this.dados.email,
+          senha: this.dados.senha,
+          telefone: this.dados.telefone,
+          genero: this.dados.genero,
           salario: this.dados.salario,
         },
         this.dados._id
@@ -144,6 +181,9 @@ export default {
       this.dados.cpf = "";
       this.dados.data = "";
       this.dados.email = "";
+      this.dados.senha = "";
+      this.dados.genero = "";
+      this.dados.telefone = "";
       this.dados.salario = "";
       this.$bvModal.hide("modal-cancelar");
     },

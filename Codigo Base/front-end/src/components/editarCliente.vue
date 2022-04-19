@@ -43,6 +43,46 @@
             ></b-form-datepicker>
           </b-col>
         </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Genero:</label>
+            <b-form-select
+              :options="generoOptions"
+              v-model="dados.genero"
+              :class="{
+                erro: submitted && $v.dados.genero.$error,
+              }"
+            ></b-form-select>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Telefone:</label>
+            <b-form-input
+              type="text"
+              v-mask="telefoneMask"
+              v-model="dados.telefone"
+              :class="{
+                erro: submitted && $v.dados.telefone.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Senha:</label>
+            <b-form-input
+              type="text"
+              v-model="dados.senha"
+              :class="{
+                erro: submitted && $v.dados.senha.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
       </b-form>
       <b-row class="alinhamentoLinha mt-5">
         <button class="alinhamentoBtn btnCancelar" @click="fecharModal">
@@ -79,9 +119,15 @@ export default {
   data() {
     return {
       cpfMask: "###.###.###-##",
+      telefoneMask: "(##)#####-####",
       submitted: false,
       dados: {},
-
+      generoOptions: [
+        { value: "", text: "Escolha um genero", disabled: true },
+        { value: "M", text: "Masculino" },
+        { value: "F", text: "Feminino" },
+        { value: "O", text: "Outro" },
+      ],
       show: true,
     };
   },
@@ -107,6 +153,9 @@ export default {
           data: this.dados.data,
           cpf: this.dados.cpf,
           email: this.dados.email,
+          senha: this.dados.senha,
+          telefone: this.dados.telefone,
+          genero: this.dados.genero,
         },
         this.dados._id
       )
@@ -129,10 +178,13 @@ export default {
     },
 
     limparDados() {
-      this.cliente.nome = "";
-      this.cliente.cpf = "";
-      this.cliente.data = "";
-      this.cliente.email = "";
+      this.dados.nome = "";
+      this.dados.cpf = "";
+      this.dados.data = "";
+      this.dados.email = "";
+      this.dados.senha = "";
+      this.dados.genero = "";
+      this.dados.telefone = "";
       this.$bvModal.hide("modal-cancelar");
     },
   },

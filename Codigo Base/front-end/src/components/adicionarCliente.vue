@@ -65,6 +65,46 @@
             ></b-form-datepicker>
           </b-col>
         </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Genero:</label>
+            <b-form-select
+              :options="generoOptions"
+              v-model="cliente.genero"
+              :class="{
+                erro: submitted && $v.cliente.genero.$error,
+              }"
+            ></b-form-select>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Telefone:</label>
+            <b-form-input
+              type="text"
+              v-mask="telefoneMask"
+              v-model="cliente.telefone"
+              :class="{
+                erro: submitted && $v.cliente.telefone.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
+
+        <b-row>
+          <b-col>
+            <label class="mt-4 labels">Senha:</label>
+            <b-form-input
+              type="text"
+              v-model="cliente.senha"
+              :class="{
+                erro: submitted && $v.cliente.senha.$error,
+              }"
+            ></b-form-input>
+          </b-col>
+        </b-row>
       </b-form>
       <b-row class="alinhamentoLinha mt-5">
         <button class="alinhamentoBtn btnCancelar" @click="fecharModal">
@@ -87,7 +127,7 @@
 </template>
 
 <script>
-import { required, email } from "vuelidate/lib/validators";
+import { required, email, maxLength } from "vuelidate/lib/validators";
 import ModalCancelar from "@/components/modalCancelar";
 import { postCliente } from "@/services/api/Cliente";
 export default {
@@ -99,13 +139,23 @@ export default {
   data() {
     return {
       cpfMask: "###.###.###-##",
+      telefoneMask: "(##)#####-####",
       submitted: false,
       cliente: {
         nome: "",
         cpf: "",
         email: "",
         data: "",
+        senha: "",
+        genero: "",
+        telefone: "",
       },
+      generoOptions: [
+        { value: "", text: "Escolha um genero", disabled: true },
+        { value: "M", text: "Masculino" },
+        { value: "F", text: "Feminino" },
+        { value: "O", text: "Outro" },
+      ],
 
       show: true,
     };
@@ -114,10 +164,13 @@ export default {
 
   validations: {
     cliente: {
-      nome: { required },
+      nome: { required, maxLength: maxLength(50) },
       cpf: { required },
       data: { required },
-      email: { required, email },
+      email: { required, email, maxLength: maxLength(100) },
+      senha: { required, maxLength: maxLength(10) },
+      telefone: { required },
+      genero: { required },
     },
   },
   methods: {
@@ -140,6 +193,9 @@ export default {
         data: this.cliente.data,
         cpf: this.cliente.cpf,
         email: this.cliente.email,
+        senha: this.cliente.senha,
+        telefone: this.cliente.telefone,
+        genero: this.cliente.genero,
       })
         .then(() => {
           this.limparDados();
@@ -159,6 +215,9 @@ export default {
       this.cliente.cpf = "";
       this.cliente.data = "";
       this.cliente.email = "";
+      this.cliente.senha = "";
+      this.cliente.genero = "";
+      this.cliente.telefone = "";
       this.$bvModal.hide("modal-cancelar");
     },
   },
