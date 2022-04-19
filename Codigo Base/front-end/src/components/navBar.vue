@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" id="nav" class="fixed-top mb-5">
-      <b-navbar-brand href="/">
+      <b-navbar-brand href="/home">
         <img
           src="@/assets/logo.png"
           height="40"
@@ -35,7 +35,7 @@
             </b-row>
           </b-nav-item>
 
-          <b-nav-item id="sairNav" href="/">
+          <b-nav-item id="sairNav" href="/login">
             <b-row class="h-100" no-gutters>
               <div id="displaySair">
                 <b-icon

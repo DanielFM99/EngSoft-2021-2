@@ -12,6 +12,10 @@ const postCliente = (dados) => {
   return Api().post("/adicionarCliente", dados);
 };
 
+const loginCliente = (dados) => {
+  return Api().post("/loginCliente", dados);
+};
+
 const excluirCliente = (id) => {
   return Api().delete(`/excluirCliente/${id}`);
 };
@@ -26,4 +30,5 @@ export {
   editarCliente,
   postCliente,
   buscarCliente,
+  loginCliente,
 };
