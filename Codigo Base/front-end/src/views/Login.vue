@@ -25,6 +25,12 @@
   </div>
 </template>
 <script>
+var htmlTag = document.getElementsByTagName("html")[0];
+htmlTag.setAttribute("class", "h-100");
+var bodyTag = document.getElementsByTagName("body")[0];
+bodyTag.setAttribute("class", "h-100 d-flex");
+var appClass = document.getElementById("app");
+appClass.classList.add("m-auto");
 import { loginCliente } from "@/services/api/Cliente";
 export default {
   components: {},
@@ -76,17 +82,14 @@ export default {
 .login {
   background-color: #0d2c6c;
   height: 500px;
-  width: 407px;
+  width: 420px;
   border-radius: 30px;
-  padding: 20px 35px 40px 40px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-style: normal;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 30rem;
-  margin-top: 5rem;
 }
 
 .titulo {
@@ -122,7 +125,6 @@ export default {
 }
 
 .form-control {
-  padding-left: 0.4rem !important;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
