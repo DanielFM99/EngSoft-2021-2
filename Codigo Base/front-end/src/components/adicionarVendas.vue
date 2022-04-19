@@ -7,7 +7,7 @@
           <h1 class="titulo">ADICIONAR VENDA</h1>
         </b-col>
       </b-row>
-
+      <botao class="alinhamentoBtnVoltar" />
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col>
@@ -109,6 +109,7 @@ import { required } from "vuelidate/lib/validators";
 import Navbar from "@/components/navBar.vue";
 import ModalCancelar from "@/components/modalCancelar";
 import ModalConfirmar from "@/components/modalConfirmar";
+import botao from "@/components/botaoVoltar";
 import { getCliente } from "@/services/api/Cliente.js";
 import { getFuncionario } from "@/services/api/Funcionario.js";
 import { postVenda } from "@/services/api/Venda";
@@ -118,6 +119,7 @@ export default {
     ModalCancelar,
     ModalConfirmar,
     Navbar,
+    botao,
   },
   props: {},
   data() {
@@ -246,6 +248,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.alinhamentoBtnVoltar {
+  margin-left: 60.5rem;
 }
 
 .arquivo {

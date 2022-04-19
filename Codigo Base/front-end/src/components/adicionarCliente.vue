@@ -7,6 +7,8 @@
         </b-col>
       </b-row>
 
+      <botao class="alinhamentoBtnVoltar" />
+
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col>
@@ -106,7 +108,7 @@
           </b-col>
         </b-row>
       </b-form>
-      <b-row class="alinhamentoLinha mt-5">
+      <b-row class="alinhamentoLinha mt-5 mb-5">
         <button class="alinhamentoBtn btnCancelar" @click="fecharModal">
           <p class="mt-3">Cancelar</p>
           <b-icon-x fontScale="1.8" class="iconeX" />
@@ -129,11 +131,13 @@
 <script>
 import { required, email, maxLength } from "vuelidate/lib/validators";
 import ModalCancelar from "@/components/modalCancelar";
+import botao from "@/components/botaoVoltar";
 import { postCliente } from "@/services/api/Cliente";
 export default {
   name: "TelaLogin",
   components: {
     ModalCancelar,
+    botao,
   },
   props: {},
   data() {
@@ -236,6 +240,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.alinhamentoBtnVoltar {
+  margin-left: 60.5rem;
 }
 
 .arquivo {

@@ -8,6 +8,8 @@
         </b-col>
       </b-row>
 
+      <botao class="alinhamentoBtnVoltar" />
+
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col>
@@ -145,6 +147,7 @@
 import { required, email, maxLength } from "vuelidate/lib/validators";
 import Navbar from "@/components/navBar.vue";
 import ModalCancelar from "@/components/modalCancelar";
+import botao from "@/components/botaoVoltar";
 import ModalConfirmar from "@/components/modalConfirmar";
 import { postFuncionario } from "@/services/api/Funcionario";
 export default {
@@ -153,6 +156,7 @@ export default {
     ModalCancelar,
     ModalConfirmar,
     Navbar,
+    botao,
   },
   props: {},
   data() {
@@ -265,6 +269,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.alinhamentoBtnVoltar {
+  margin-left: 60.5rem;
 }
 
 .arquivo {
