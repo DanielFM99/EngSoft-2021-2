@@ -192,7 +192,7 @@ router.get('/listarVendas', (req, res) => {
       res.send(vendas);
     })
     .catch((error) => {
-      console.log('Erro!', error);
+      console.log('Erro!');
     });
 });
 
