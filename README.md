@@ -10,10 +10,23 @@ Será possível cadastrar usuário (cliente ou funcionário), produto e realizar
 - [Igor Freire de Morais](https://github.com/IgorFreiredeMorais)
 
 ## Tecnologias Utilizadas:
-- Vue.js 2.6.11
-- Node.js 14.18.0
+- Vue.js 2.6.12
+- Node.js 16.14.2
 - Express.js 4.17.1
-- MongoDB 5.0.3
+- MongoDB 5.0.7
+
+## Regras de Uso do Git:
+- O documento de requisitos está na pasta "Requisitos"
+- Todos diagramas estão na pasta "Diagramas"
+- O documento de regras de verificação e análise de requisitos está na pasta "Padrões Adotados"
+- O código do projeto se encontra na pasta "Codigo Base", que por sua vez subdivide-se nas pastas "back-end" e "front-end"
+- Os commits do projeto devem estar no particípio (adiciona, aceita, deleta, edita, etc)
+- As issues do projeto devem estar marcadas com a(s) label "front-end" "back-end" e/ou "test"
 
 ## Como executar:
-TODO
+- ```npm install``` na pasta front-end
+- ```npm run serve``` na pasta front-end
+- ```npm install``` na pasta back-end
+- ```npm run serve``` na pasta back-end
+- Abrir no navegador o endereço http://localhost:8080/
+- Caso queira realizar requisições REST no Postman ou Insomnia, basta utilizar o endereço http://localhost:8080/
