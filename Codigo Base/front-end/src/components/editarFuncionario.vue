@@ -173,7 +173,7 @@ export default {
     },
 
     mudarRota() {
-      this.$router.push(`/`);
+      this.$router.push(`/home`);
     },
 
     limparDados() {

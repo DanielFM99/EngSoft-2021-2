@@ -72,7 +72,7 @@ export default {
       this.$router.push("/materiais-bonus");
     },
     logout() {
-      this.$router.push("/");
+      this.$router.push("/login");
     }
   }
 };
