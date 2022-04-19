@@ -23,7 +23,7 @@ export default {
     tabelaVendas,
     tabelaClientes,
     tabelaFuncionarios,
-    Footer,
-  },
+    Footer
+  }
 };
 </script>

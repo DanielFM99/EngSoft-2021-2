@@ -51,7 +51,7 @@
               :options="generoOptions"
               v-model="dados.genero"
               :class="{
-                erro: submitted && $v.dados.genero.$error,
+                erro: submitted && $v.dados.genero.$error
               }"
             ></b-form-select>
           </b-col>
@@ -65,7 +65,7 @@
               v-mask="telefoneMask"
               v-model="dados.telefone"
               :class="{
-                erro: submitted && $v.dados.telefone.$error,
+                erro: submitted && $v.dados.telefone.$error
               }"
             ></b-form-input>
           </b-col>
@@ -78,7 +78,7 @@
               type="text"
               v-model="dados.senha"
               :class="{
-                erro: submitted && $v.dados.senha.$error,
+                erro: submitted && $v.dados.senha.$error
               }"
             ></b-form-input>
           </b-col>
@@ -113,7 +113,7 @@ export default {
   name: "TelaLogin",
   components: {
     ModalCancelar,
-    ModalConfirmar,
+    ModalConfirmar
   },
   props: {},
   data() {
@@ -126,13 +126,13 @@ export default {
         { value: "", text: "Escolha um genero", disabled: true },
         { value: "M", text: "Masculino" },
         { value: "F", text: "Feminino" },
-        { value: "O", text: "Outro" },
+        { value: "O", text: "Outro" }
       ],
-      show: true,
+      show: true
     };
   },
   mounted() {
-    buscarCliente(this.$route.params.id).then((resp) => {
+    buscarCliente(this.$route.params.id).then(resp => {
       this.dados = resp.data;
     });
   },
@@ -155,7 +155,7 @@ export default {
           email: this.dados.email,
           senha: this.dados.senha,
           telefone: this.dados.telefone,
-          genero: this.dados.genero,
+          genero: this.dados.genero
         },
         this.dados._id
       )
@@ -164,11 +164,11 @@ export default {
           this.$bvToast.toast("Cliente editado com sucesso", {
             title: "Sucesso na edição",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
           this.mudarRota();
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
@@ -186,8 +186,8 @@ export default {
       this.dados.genero = "";
       this.dados.telefone = "";
       this.$bvModal.hide("modal-cancelar");
-    },
-  },
+    }
+  }
 };
 </script>
 

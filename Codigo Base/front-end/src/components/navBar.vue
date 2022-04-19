@@ -73,8 +73,8 @@ export default {
     },
     logout() {
       this.$router.push("/");
-    },
-  },
+    }
+  }
 };
 </script>
 

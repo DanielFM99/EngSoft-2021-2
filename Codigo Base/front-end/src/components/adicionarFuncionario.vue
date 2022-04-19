@@ -18,7 +18,7 @@
               type="text"
               v-model="funcionario.nome"
               :class="{
-                erro: submitted && $v.funcionario.nome.$error,
+                erro: submitted && $v.funcionario.nome.$error
               }"
             >
             </b-form-input>
@@ -32,7 +32,7 @@
               type="text"
               v-model="funcionario.email"
               :class="{
-                erro: submitted && $v.funcionario.email.$error,
+                erro: submitted && $v.funcionario.email.$error
               }"
             >
             </b-form-input>
@@ -47,7 +47,7 @@
               v-mask="cpfMask"
               v-model="funcionario.cpf"
               :class="{
-                erro: submitted && $v.funcionario.cpf.$error,
+                erro: submitted && $v.funcionario.cpf.$error
               }"
             ></b-form-input>
           </b-col>
@@ -61,7 +61,7 @@
               :class="{
                 erroData: submitted && $v.funcionario.data.$error,
                 'my-data-picker forms-imput':
-                  !submitted && $v.funcionario.data.$error,
+                  !submitted && $v.funcionario.data.$error
               }"
               class="my-data-picker forms-input"
               placeholder="Escolha uma data"
@@ -76,7 +76,7 @@
               type="text"
               v-model="funcionario.salario"
               :class="{
-                erro: submitted && $v.funcionario.salario.$error,
+                erro: submitted && $v.funcionario.salario.$error
               }"
             ></b-form-input>
           </b-col>
@@ -89,7 +89,7 @@
               :options="generoOptions"
               v-model="funcionario.genero"
               :class="{
-                erro: submitted && $v.funcionario.genero.$error,
+                erro: submitted && $v.funcionario.genero.$error
               }"
             ></b-form-select>
           </b-col>
@@ -103,7 +103,7 @@
               v-mask="telefoneMask"
               v-model="funcionario.telefone"
               :class="{
-                erro: submitted && $v.funcionario.telefone.$error,
+                erro: submitted && $v.funcionario.telefone.$error
               }"
             ></b-form-input>
           </b-col>
@@ -116,7 +116,7 @@
               type="text"
               v-model="funcionario.senha"
               :class="{
-                erro: submitted && $v.funcionario.senha.$error,
+                erro: submitted && $v.funcionario.senha.$error
               }"
             ></b-form-input>
           </b-col>
@@ -156,7 +156,7 @@ export default {
     ModalCancelar,
     ModalConfirmar,
     Navbar,
-    botao,
+    botao
   },
   props: {},
   data() {
@@ -172,16 +172,16 @@ export default {
         salario: "",
         genero: "",
         telefone: "",
-        senha: "",
+        senha: ""
       },
       generoOptions: [
         { value: "", text: "Escolha um genero", disabled: true },
         { value: "M", text: "Masculino" },
         { value: "F", text: "Feminino" },
-        { value: "O", text: "Outro" },
+        { value: "O", text: "Outro" }
       ],
 
-      show: true,
+      show: true
     };
   },
   mounted() {},
@@ -195,8 +195,8 @@ export default {
       senha: { required, maxLength: maxLength(10) },
       telefone: { required },
       genero: { required },
-      salario: { required },
-    },
+      salario: { required }
+    }
   },
   methods: {
     handleSubmit() {
@@ -225,7 +225,7 @@ export default {
         senha: this.funcionario.senha,
         telefone: this.funcionario.telefone,
         genero: this.funcionario.genero,
-        salario: this.funcionario.salario,
+        salario: this.funcionario.salario
       })
         .then(() => {
           this.limparDados();
@@ -234,10 +234,10 @@ export default {
           this.$bvToast.toast("Funcionário adicionado com sucesso", {
             title: "Funcionário",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
@@ -251,8 +251,8 @@ export default {
       this.funcionario.telefone = "";
       this.funcionario.salario = "";
       this.$bvModal.hide("modal-cancelar");
-    },
-  },
+    }
+  }
 };
 </script>
 

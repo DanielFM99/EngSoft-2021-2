@@ -4,15 +4,15 @@ const getFuncionario = () => {
   return Api().get("/listarFuncionarios");
 };
 
-const buscarFuncionario = (id) => {
+const buscarFuncionario = id => {
   return Api().get(`/buscarFuncionario/${id}`);
 };
 
-const postFuncionario = (dados) => {
+const postFuncionario = dados => {
   return Api().post("/adicionarFuncionario", dados);
 };
 
-const excluirFuncionario = (id) => {
+const excluirFuncionario = id => {
   return Api().delete(`/excluirFuncionario/${id}`);
 };
 
@@ -25,5 +25,5 @@ export {
   excluirFuncionario,
   editarFuncionario,
   postFuncionario,
-  buscarFuncionario,
+  buscarFuncionario
 };

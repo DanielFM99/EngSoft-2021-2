@@ -13,7 +13,7 @@ describe("footer.vue", () => {
   it("renders props.nomeEmpresa when passed", () => {
     const nomeEmpresa = "new message";
     const wrapper = shallowMount(Footer, {
-      propsData: { nomeEmpresa },
+      propsData: { nomeEmpresa }
     });
     expect(wrapper.text()).toMatch(nomeEmpresa);
   });

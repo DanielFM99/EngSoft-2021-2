@@ -82,10 +82,10 @@ export default {
   methods: {
     receberDados() {
       getCliente()
-        .then((res) => {
-          this.items = res.data.map((e) => ({
+        .then(res => {
+          this.items = res.data.map(e => ({
             ...e,
-            data: e.data.substring(0, 10),
+            data: e.data.substring(0, 10)
           }));
         })
         .catch(() => {
@@ -94,7 +94,7 @@ export default {
             {
               title: "Erro interno no servidor",
               autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-              variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+              variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
             }
           );
         });
@@ -117,13 +117,13 @@ export default {
           this.$bvToast.toast("Cliente excluído com sucesso", {
             title: "Sucesso na exclusão",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
-    },
+    }
   },
   data() {
     return {
@@ -136,56 +136,56 @@ export default {
           key: "nome",
           label: "Nome",
           tdClass: "nome",
-          thClass: "th-nome",
+          thClass: "th-nome"
         },
         {
           key: "email",
           label: "Email",
           tdClass: "empresa",
-          thClass: "th-empresa",
+          thClass: "th-empresa"
         },
         {
           key: "cpf",
           label: "Cpf",
           tdClass: "empresa",
-          thClass: "th-empresa",
+          thClass: "th-empresa"
         },
         {
           key: "data",
           label: "Data de nascimento",
           tdClass: "empresa",
-          thClass: "th-empresa",
+          thClass: "th-empresa"
         },
         {
           key: "genero",
           label: "Genero",
           tdClass: "empresa",
-          thClass: "th-empresa",
+          thClass: "th-empresa"
         },
         {
           key: "telefone",
           label: "Telefone",
           tdClass: "empresa",
-          thClass: "th-empresa",
+          thClass: "th-empresa"
         },
         {
           key: "acoes",
           label: "Ações",
           tdClass: "acoes",
-          thClass: "th-acoes",
-        },
+          thClass: "th-acoes"
+        }
       ],
-      items: [],
+      items: []
     };
   },
   computed: {
     rows() {
       return this.items.length;
-    },
+    }
   },
   mounted() {
     this.receberDados();
-  },
+  }
 };
 </script>
 

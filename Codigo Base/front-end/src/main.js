@@ -20,5 +20,5 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");

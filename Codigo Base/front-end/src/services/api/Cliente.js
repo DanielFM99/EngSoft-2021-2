@@ -4,19 +4,19 @@ const getCliente = () => {
   return Api().get("/listarClientes");
 };
 
-const buscarCliente = (id) => {
+const buscarCliente = id => {
   return Api().get(`/buscarCliente/${id}`);
 };
 
-const postCliente = (dados) => {
+const postCliente = dados => {
   return Api().post("/adicionarCliente", dados);
 };
 
-const loginCliente = (dados) => {
+const loginCliente = dados => {
   return Api().post("/loginCliente", dados);
 };
 
-const excluirCliente = (id) => {
+const excluirCliente = id => {
   return Api().delete(`/excluirCliente/${id}`);
 };
 
@@ -30,5 +30,5 @@ export {
   editarCliente,
   postCliente,
   buscarCliente,
-  loginCliente,
+  loginCliente
 };

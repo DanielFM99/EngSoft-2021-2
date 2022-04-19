@@ -40,8 +40,8 @@ export default {
       credentials: { showPassword: false },
       user: {
         email: "",
-        senha: "",
-      },
+        senha: ""
+      }
     };
   },
   methods: {
@@ -56,14 +56,14 @@ export default {
         .then(() => {
           this.mudarRota();
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
     mudarRota() {
       this.$router.push(`/home`);
-    },
-  },
+    }
+  }
 };
 </script>
 

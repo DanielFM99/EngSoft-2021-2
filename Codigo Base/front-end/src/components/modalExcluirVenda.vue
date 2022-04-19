@@ -31,9 +31,9 @@ export default {
   props: {
     confirma_acao: {
       type: Function,
-      required: false,
-    },
-  },
+      required: false
+    }
+  }
 };
 </script>
 

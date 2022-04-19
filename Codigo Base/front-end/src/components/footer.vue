@@ -33,8 +33,8 @@ export default {
   name: "Footer",
   props: {
     nomeEmpresa: {
-      type: String,
-    },
-  },
+      type: String
+    }
+  }
 };
 </script>

@@ -10,8 +10,8 @@ export default {
   methods: {
     mudarRota() {
       this.$router.push(`/home`);
-    },
-  },
+    }
+  }
 };
 </script>
 

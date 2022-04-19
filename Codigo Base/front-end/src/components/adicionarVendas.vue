@@ -16,7 +16,7 @@
               type="text"
               v-model="venda.valor"
               :class="{
-                erro: submitted && $v.venda.valor.$error,
+                erro: submitted && $v.venda.valor.$error
               }"
             >
             </b-form-input>
@@ -32,7 +32,7 @@
               :options="optionsCliente"
               v-model="venda.nomeCliente"
               :class="{
-                erro: submitted && $v.venda.nomeCliente.$error,
+                erro: submitted && $v.venda.nomeCliente.$error
               }"
             >
             </b-form-select>
@@ -48,7 +48,7 @@
               :options="optionsVendedor"
               v-model="venda.nomeFuncionario"
               :class="{
-                erro: submitted && $v.venda.nomeFuncionario.$error,
+                erro: submitted && $v.venda.nomeFuncionario.$error
               }"
             ></b-form-select>
           </b-col>
@@ -61,7 +61,7 @@
               type="text"
               v-model="venda.produtos"
               :class="{
-                erro: submitted && $v.venda.produtos.$error,
+                erro: submitted && $v.venda.produtos.$error
               }"
             ></b-form-input>
           </b-col>
@@ -74,8 +74,7 @@
               v-model="venda.data"
               :class="{
                 erroData: submitted && $v.venda.data.$error,
-                'my-data-picker forms-imput':
-                  !submitted && $v.venda.data.$error,
+                'my-data-picker forms-imput': !submitted && $v.venda.data.$error
               }"
               class="my-data-picker forms-input"
               placeholder="Escolha uma data"
@@ -119,7 +118,7 @@ export default {
     ModalCancelar,
     ModalConfirmar,
     Navbar,
-    botao,
+    botao
   },
   props: {},
   data() {
@@ -130,15 +129,15 @@ export default {
         nomeCliente: "",
         nomeFuncionario: "",
         data: "",
-        produtos: "",
+        produtos: ""
       },
       optionsCliente: [{ _id: "", nome: "Escolha um cliente", disabled: true }],
 
       optionsVendedor: [
-        { _id: "", nome: "Escolha um vendedor", disabled: true },
+        { _id: "", nome: "Escolha um vendedor", disabled: true }
       ],
 
-      show: true,
+      show: true
     };
   },
   mounted() {},
@@ -149,8 +148,8 @@ export default {
       nomeCliente: { required },
       data: { required },
       nomeFuncionario: { required },
-      valor: { required },
-    },
+      valor: { required }
+    }
   },
   methods: {
     handleSubmit() {
@@ -176,7 +175,7 @@ export default {
         data: this.venda.data,
         nomeFuncionario: this.venda.nomeFuncionario,
         valor: this.venda.valor,
-        produtos: this.venda.produtos,
+        produtos: this.venda.produtos
       })
         .then(() => {
           this.limparDados();
@@ -185,10 +184,10 @@ export default {
           this.$bvToast.toast("Venda adicionada com sucesso", {
             title: "Venda",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
@@ -200,11 +199,11 @@ export default {
       this.venda.valor = "";
       this.venda.produtos = "";
       this.$bvModal.hide("modal-cancelar");
-    },
+    }
   },
   beforeCreate() {
     getFuncionario()
-      .then((res) => {
+      .then(res => {
         this.optionsVendedor = [...this.optionsVendedor, ...res.data];
       })
       .catch(() => {
@@ -213,12 +212,12 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
     getCliente()
-      .then((res) => {
+      .then(res => {
         this.optionsCliente = [...this.optionsCliente, ...res.data];
       })
       .catch(() => {
@@ -227,11 +226,11 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
-  },
+  }
 };
 </script>
 

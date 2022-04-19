@@ -4,15 +4,15 @@ const getVenda = () => {
   return Api().get("/listarVendas");
 };
 
-const buscarVenda = (id) => {
+const buscarVenda = id => {
   return Api().get(`/buscarVenda/${id}`);
 };
 
-const postVenda = (dados) => {
+const postVenda = dados => {
   return Api().post("/adicionarVenda", dados);
 };
 
-const excluirVenda = (id) => {
+const excluirVenda = id => {
   return Api().delete(`/excluirVenda/${id}`);
 };
 

@@ -9,7 +9,7 @@ const apiUrl =
 export default () => {
   // console.log("token", store.getters["auth/token"]);
   return axios.create({
-    baseURL: apiUrl,
+    baseURL: apiUrl
     // Configuração automática de token na requisição, se tiver as propriedades na store
     // headers: {
     //   Authorization: store.getters['auth/isLoggedIn']

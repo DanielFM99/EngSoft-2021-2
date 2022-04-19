@@ -92,7 +92,7 @@ export default {
   components: {
     ModalCancelar,
     ModalConfirmar,
-    Navbar,
+    Navbar
   },
   props: {},
   data() {
@@ -102,14 +102,14 @@ export default {
       optionsCliente: [{ _id: "", nome: "Escolha um cliente", disabled: true }],
 
       optionsVendedor: [
-        { _id: "", nome: "Escolha um vendedor", disabled: true },
+        { _id: "", nome: "Escolha um vendedor", disabled: true }
       ],
 
-      show: true,
+      show: true
     };
   },
   mounted() {
-    buscarVenda(this.$route.params.id).then((resp) => {
+    buscarVenda(this.$route.params.id).then(resp => {
       this.dados = resp.data;
     });
   },
@@ -130,7 +130,7 @@ export default {
           data: this.dados.data,
           nomeFuncionario: this.dados.nomeFuncionario,
           valor: this.dados.valor,
-          produtos: this.dados.produtos,
+          produtos: this.dados.produtos
         },
         this.dados._id
       )
@@ -139,11 +139,11 @@ export default {
           this.$bvToast.toast("Venda editada com sucesso", {
             title: "Sucesso na edição",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
           this.mudarRota();
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
@@ -155,11 +155,11 @@ export default {
       this.venda.valor = "";
       this.venda.produtos = "";
       this.$bvModal.hide("modal-cancelar");
-    },
+    }
   },
   beforeCreate() {
     getFuncionario()
-      .then((res) => {
+      .then(res => {
         this.optionsVendedor = [...this.optionsVendedor, ...res.data];
       })
       .catch(() => {
@@ -168,12 +168,12 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
     getCliente()
-      .then((res) => {
+      .then(res => {
         this.optionsCliente = [...this.optionsCliente, ...res.data];
       })
       .catch(() => {
@@ -182,11 +182,11 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
-  },
+  }
 };
 </script>
 

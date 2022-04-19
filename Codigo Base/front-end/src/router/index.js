@@ -7,18 +7,17 @@ const routes = [
   {
     path: "/",
     name: "Default",
-    redirect: () => "/login",
+    redirect: () => "/login"
   },
   {
     path: "/login",
     name: "Login",
-    component: () =>
-      import(/* webpackChunkName: "home" */ "../views/Login.vue"),
+    component: () => import(/* webpackChunkName: "home" */ "../views/Login.vue")
   },
   {
     path: "/home",
     name: "Home",
-    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue"),
+    component: () => import(/* webpackChunkName: "home" */ "../views/Home.vue")
   },
   {
     path: "/cliente/adicionar",
@@ -29,7 +28,7 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../components/adicionarCliente.vue"
-      ),
+      )
   },
   {
     path: "/funcionario/adicionar",
@@ -40,7 +39,7 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../components/adicionarFuncionario.vue"
-      ),
+      )
   },
   {
     path: "/vendas/adicionar",
@@ -51,7 +50,7 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../components/adicionarVendas.vue"
-      ),
+      )
   },
   {
     path: "/clientes/editar/:id",
@@ -60,7 +59,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../components/editarCliente.vue"),
+      import(/* webpackChunkName: "about" */ "../components/editarCliente.vue")
   },
   {
     path: "/funcionarios/editar/:id",
@@ -71,7 +70,7 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "about" */ "../components/editarFuncionario.vue"
-      ),
+      )
   },
   {
     path: "/vendas/editar/:id",
@@ -80,14 +79,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../components/editarVendas.vue"),
-  },
+      import(/* webpackChunkName: "about" */ "../components/editarVendas.vue")
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;
