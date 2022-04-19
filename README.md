@@ -15,6 +15,9 @@ Será possível cadastrar usuário (cliente ou funcionário) e realizar venda
 - Express.js 4.17.1
 - MongoDB 5.0.7
 
+## 🎨 Protótipo:
+https://www.figma.com/file/NdCvVgFNCldICQgtP18aPx/Untitled?node-id=0%3A1
+
 ## :file_folder: Regras de Uso do Git:
 - O documento de requisitos está na pasta "Requisitos"
 - Todos diagramas estão na pasta "Diagramas"
