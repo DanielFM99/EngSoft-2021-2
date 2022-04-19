@@ -20,6 +20,7 @@ Será possível cadastrar usuário (cliente ou funcionário) e realizar venda
 - Todos diagramas estão na pasta "Diagramas"
 - O documento de regras de verificação e análise de requisitos está na pasta "Padrões Adotados"
 - O código do projeto se encontra na pasta "Codigo Base", que por sua vez subdivide-se nas pastas "back-end" e "front-end"
+- O arquivo de teste unitário se encontra na pasta tests/unit
 - Os commits do projeto devem estar no particípio (adiciona, aceita, deleta, edita, etc)
 - As issues do projeto devem estar marcadas com a(s) label "front-end" "back-end" e/ou "test"
 
