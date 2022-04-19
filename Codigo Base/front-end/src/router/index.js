@@ -5,6 +5,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/",
+    name: "Default",
+    redirect: () => "/login",
+  },
+  {
     path: "/login",
     name: "Login",
     component: () =>
