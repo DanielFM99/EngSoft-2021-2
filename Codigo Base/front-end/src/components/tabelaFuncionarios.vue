@@ -148,7 +148,10 @@ export default {
     receberDados() {
       getFuncionario()
         .then((res) => {
-          this.items = res.data;
+          this.items = res.data.map((e) => ({
+            ...e,
+            data: e.data.substring(0, 10),
+          }));
         })
         .catch(() => {
           this.$bvToast.toast(
