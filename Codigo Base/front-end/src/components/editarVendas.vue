@@ -111,7 +111,6 @@ export default {
   mounted() {
     buscarVenda(this.$route.params.id).then((resp) => {
       this.dados = resp.data;
-      console.log(this.dados);
     });
   },
 

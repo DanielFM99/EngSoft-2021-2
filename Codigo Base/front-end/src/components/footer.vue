@@ -1,7 +1,7 @@
 <template>
-  <div class="footers" :style="styleFooter">
+  <div class="footers">
     <b-container>
-      <b-col v-if="nomeEmpresa" :style="styleNomeEmpresa" class="empresaClass">
+      <b-col v-if="nomeEmpresa" class="empresaClass">
         {{ nomeEmpresa }}
       </b-col>
     </b-container>

@@ -82,7 +82,6 @@ export default {
       getVenda()
         .then((res) => {
           this.items = res.data;
-          console.log(res.data);
         })
         .catch(() => {
           this.$bvToast.toast(
