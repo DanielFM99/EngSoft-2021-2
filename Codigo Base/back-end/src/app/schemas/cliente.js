@@ -17,6 +17,10 @@ const cliente = new mongoose.Schema({
     type: String,
     required: true,
   },
+  senha: {
+    type: String,
+    required: true,
+  },
 });
 
 export default mongoose.model('cliente', cliente);

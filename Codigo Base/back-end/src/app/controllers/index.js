@@ -5,10 +5,28 @@ import venda from '@/app/schemas/venda';
 
 const router = new Router();
 
+router.post('/loginCliente', (req, res) => {
+  const { email, senha } = req.body;
+  cliente.findOne({ email, senha }, (err, cliente) => {
+    funcionario.findOne({ email, senha }, (err, funcionario) => {
+      if (funcionario || cliente) {
+        res.status(200).json({
+          message: 'Login realizado com sucesso',
+          cliente,
+        });
+      } else {
+        res.status(404).json({
+          message: 'Usuário não encontrado',
+        });
+      }
+    });
+  });
+});
+
 router.post('/adicionarCliente', (req, res) => {
-  const { nome, data, cpf, email } = req.body;
+  const { nome, data, cpf, email, senha } = req.body;
   cliente
-    .create({ nome, data, cpf, email })
+    .create({ nome, data, cpf, email, senha })
     .then((clientes) => {
       res.status(200).send(clientes);
     })
