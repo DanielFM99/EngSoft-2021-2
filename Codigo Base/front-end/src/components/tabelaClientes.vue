@@ -95,8 +95,6 @@ export default {
             }
           );
         });
-      let data = new Date(this.items.data);
-      console.log(data);
     },
 
     abrirModalClientes(id) {
