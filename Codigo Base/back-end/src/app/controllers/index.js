@@ -79,7 +79,17 @@ router.delete('/excluirCliente/:clienteId', (req, res) => {
   cliente
     .findByIdAndRemove(req.params.clienteId)
     .then(() => {
-      res.status(200).send({ message: 'Cliente removido com sucesso' });
+      venda
+        .deleteMany({
+          nomeCliente: req.params.clienteId,
+        })
+        .then(() => {
+          res.status(200).send({ message: 'Cliente removido com sucesso' });
+        })
+        .catch((error) => {
+          console.log('Erro!');
+          res.status(400).send({ error: 'Ocorreu um erro!' });
+        });
     })
     .catch((error) => {
       console.log('Erro!');
@@ -143,7 +153,17 @@ router.delete('/excluirFuncionario/:funcionarioId', (req, res) => {
   funcionario
     .findByIdAndRemove(req.params.funcionarioId)
     .then(() => {
-      res.status(200).send({ message: 'Funcionário removido com sucesso' });
+      venda
+        .deleteMany({
+          nomeFuncionario: req.params.funcionarioId,
+        })
+        .then(() => {
+          res.status(200).send({ message: 'Funcionário removido com sucesso' });
+        })
+        .catch((error) => {
+          console.log('Erro!');
+          res.status(400).send({ error: 'Ocorreu um erro!' });
+        });
     })
     .catch((error) => {
       console.log('Erro!');
@@ -191,9 +211,7 @@ router.get('/listarVendas', (req, res) => {
       });
       res.send(vendas);
     })
-    .catch((error) => {
-      console.log('Erro!');
-    });
+    .catch((error) => {});
 });
 
 router.get('/buscarVenda/:vendaId', (req, res) => {
