@@ -33,4 +33,4 @@ https://www.figma.com/file/NdCvVgFNCldICQgtP18aPx/Untitled?node-id=0%3A1
 - ```npm install``` na pasta back-end
 - ```npm run serve``` na pasta back-end
 - Abrir no navegador o endereço http://localhost:8080/
-- Caso queira realizar requisições REST no Postman ou Insomnia, basta utilizar o endereço http://localhost:8080/
+- Caso queira realizar requisições REST no Postman ou Insomnia, basta utilizar o endereço http://localhost:3000/
