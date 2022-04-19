@@ -12,7 +12,7 @@
         <b-row>
           <b-col>
             <label class="mt-4 labels">Senha:</label>
-            <b-form-input type="text" v-model="user.senha"> </b-form-input>
+            <b-form-input type="password" v-model="user.senha"> </b-form-input>
           </b-col>
         </b-row>
       </b-form>

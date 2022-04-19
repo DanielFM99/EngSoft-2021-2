@@ -75,7 +75,7 @@
           <b-col>
             <label class="mt-4 labels">Senha:</label>
             <b-form-input
-              type="text"
+              type="password"
               v-model="dados.senha"
               :class="{
                 erro: submitted && $v.dados.senha.$error

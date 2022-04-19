@@ -75,7 +75,7 @@
         <b-row>
           <b-col>
             <label class="mt-4 labels">Senha:</label>
-            <b-form-input type="text" v-model="dados.senha"></b-form-input>
+            <b-form-input type="password" v-model="dados.senha"></b-form-input>
           </b-col>
         </b-row>
       </b-form>

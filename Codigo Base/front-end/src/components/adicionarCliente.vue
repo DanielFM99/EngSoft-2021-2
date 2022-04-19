@@ -17,7 +17,7 @@
               type="text"
               v-model="cliente.nome"
               :class="{
-                erro: submitted && $v.cliente.nome.$error,
+                erro: submitted && $v.cliente.nome.$error
               }"
             >
             </b-form-input>
@@ -31,7 +31,7 @@
               type="text"
               v-model="cliente.email"
               :class="{
-                erro: submitted && $v.cliente.email.$error,
+                erro: submitted && $v.cliente.email.$error
               }"
             >
             </b-form-input>
@@ -46,7 +46,7 @@
               v-mask="cpfMask"
               v-model="cliente.cpf"
               :class="{
-                erro: submitted && $v.cliente.cpf.$error,
+                erro: submitted && $v.cliente.cpf.$error
               }"
             ></b-form-input>
           </b-col>
@@ -60,7 +60,7 @@
               :class="{
                 erroData: submitted && $v.cliente.data.$error,
                 'my-data-picker forms-imput':
-                  !submitted && $v.cliente.data.$error,
+                  !submitted && $v.cliente.data.$error
               }"
               class="my-data-picker forms-input"
               placeholder="Escolha uma data"
@@ -75,7 +75,7 @@
               :options="generoOptions"
               v-model="cliente.genero"
               :class="{
-                erro: submitted && $v.cliente.genero.$error,
+                erro: submitted && $v.cliente.genero.$error
               }"
             ></b-form-select>
           </b-col>
@@ -89,7 +89,7 @@
               v-mask="telefoneMask"
               v-model="cliente.telefone"
               :class="{
-                erro: submitted && $v.cliente.telefone.$error,
+                erro: submitted && $v.cliente.telefone.$error
               }"
             ></b-form-input>
           </b-col>
@@ -99,10 +99,10 @@
           <b-col>
             <label class="mt-4 labels">Senha:</label>
             <b-form-input
-              type="text"
+              type="password"
               v-model="cliente.senha"
               :class="{
-                erro: submitted && $v.cliente.senha.$error,
+                erro: submitted && $v.cliente.senha.$error
               }"
             ></b-form-input>
           </b-col>
@@ -137,7 +137,7 @@ export default {
   name: "TelaLogin",
   components: {
     ModalCancelar,
-    botao,
+    botao
   },
   props: {},
   data() {
@@ -152,16 +152,16 @@ export default {
         data: "",
         senha: "",
         genero: "",
-        telefone: "",
+        telefone: ""
       },
       generoOptions: [
         { value: "", text: "Escolha um genero", disabled: true },
         { value: "M", text: "Masculino" },
         { value: "F", text: "Feminino" },
-        { value: "O", text: "Outro" },
+        { value: "O", text: "Outro" }
       ],
 
-      show: true,
+      show: true
     };
   },
   mounted() {},
@@ -174,8 +174,8 @@ export default {
       email: { required, email, maxLength: maxLength(100) },
       senha: { required, maxLength: maxLength(10) },
       telefone: { required },
-      genero: { required },
-    },
+      genero: { required }
+    }
   },
   methods: {
     handleSubmit() {
@@ -199,7 +199,7 @@ export default {
         email: this.cliente.email,
         senha: this.cliente.senha,
         telefone: this.cliente.telefone,
-        genero: this.cliente.genero,
+        genero: this.cliente.genero
       })
         .then(() => {
           this.limparDados();
@@ -207,10 +207,10 @@ export default {
           this.$bvToast.toast("Cliente adicionado com sucesso", {
             title: "Cliente",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
     },
@@ -223,8 +223,8 @@ export default {
       this.cliente.genero = "";
       this.cliente.telefone = "";
       this.$bvModal.hide("modal-cancelar");
-    },
-  },
+    }
+  }
 };
 </script>
 
