@@ -1,21 +1,21 @@
 # Projeto Prático Engenharia de Software 2021/2 - BDI Tech
 
-## Descrição:
-O projeto consiste em um sistema de uma lanchonete, na qual é possível cadastrar a venda de alimentos para clientes.
-Será possível cadastrar usuário (cliente ou funcionário), produto e realizar venda.
+## :book: Descrição:
+O projeto consiste em um sistema de uma lanchonete, na qual é possível cadastrar a venda de alimentos para clientes
+Será possível cadastrar usuário (cliente ou funcionário) e realizar venda
 
-## Alunos:
+## :nerd_face: Alunos:
 - [Bruno de Almeida de Paula](https://github.com/brunin299)
 - [Daniel Figueiredo Macedo](https://github.com/DanielFM99)
 - [Igor Freire de Morais](https://github.com/IgorFreiredeMorais)
 
-## Tecnologias Utilizadas:
+## :pushpin: Tecnologias Utilizadas:
 - Vue.js 2.6.12
 - Node.js 16.14.2
 - Express.js 4.17.1
 - MongoDB 5.0.7
 
-## Regras de Uso do Git:
+## :file_folder: Regras de Uso do Git:
 - O documento de requisitos está na pasta "Requisitos"
 - Todos diagramas estão na pasta "Diagramas"
 - O documento de regras de verificação e análise de requisitos está na pasta "Padrões Adotados"
@@ -23,7 +23,7 @@ Será possível cadastrar usuário (cliente ou funcionário), produto e realizar
 - Os commits do projeto devem estar no particípio (adiciona, aceita, deleta, edita, etc)
 - As issues do projeto devem estar marcadas com a(s) label "front-end" "back-end" e/ou "test"
 
-## Como executar:
+## :zap: Como executar:
 - ```npm install``` na pasta front-end
 - ```npm run serve``` na pasta front-end
 - ```npm install``` na pasta back-end
