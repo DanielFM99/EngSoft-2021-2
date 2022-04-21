@@ -8,6 +8,8 @@
         </b-col>
       </b-row>
 
+      <botao class="alinhamentoBtnVoltar" />
+
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col>
@@ -84,6 +86,7 @@
 import Navbar from "@/components/navBar.vue";
 import ModalCancelar from "@/components/modalCancelar";
 import ModalConfirmar from "@/components/modalConfirmar";
+import botao from "@/components/botaoVoltar";
 import { getCliente } from "@/services/api/Cliente.js";
 import { getFuncionario } from "@/services/api/Funcionario.js";
 import { editarVenda, buscarVenda } from "@/services/api/Venda";
@@ -92,7 +95,8 @@ export default {
   components: {
     ModalCancelar,
     ModalConfirmar,
-    Navbar
+    Navbar,
+    botao,
   },
   props: {},
   data() {
@@ -102,14 +106,14 @@ export default {
       optionsCliente: [{ _id: "", nome: "Escolha um cliente", disabled: true }],
 
       optionsVendedor: [
-        { _id: "", nome: "Escolha um vendedor", disabled: true }
+        { _id: "", nome: "Escolha um vendedor", disabled: true },
       ],
 
-      show: true
+      show: true,
     };
   },
   mounted() {
-    buscarVenda(this.$route.params.id).then(resp => {
+    buscarVenda(this.$route.params.id).then((resp) => {
       this.dados = resp.data;
     });
   },
@@ -130,7 +134,7 @@ export default {
           data: this.dados.data,
           nomeFuncionario: this.dados.nomeFuncionario,
           valor: this.dados.valor,
-          produtos: this.dados.produtos
+          produtos: this.dados.produtos,
         },
         this.dados._id
       )
@@ -139,27 +143,29 @@ export default {
           this.$bvToast.toast("Venda editada com sucesso", {
             title: "Sucesso na edição",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
-          this.mudarRota();
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     },
-
+    mudarRota() {
+      this.$router.push(`/home`);
+    },
     limparDados() {
-      this.venda.nomeCliente = "";
-      this.venda.nomeFuncionario = "";
-      this.venda.data = "";
-      this.venda.valor = "";
-      this.venda.produtos = "";
+      this.dados.nomeCliente = "";
+      this.dados.nomeFuncionario = "";
+      this.dados.data = "";
+      this.dados.valor = "";
+      this.dados.produtos = "";
       this.$bvModal.hide("modal-cancelar");
-    }
+      this.mudarRota();
+    },
   },
   beforeCreate() {
     getFuncionario()
-      .then(res => {
+      .then((res) => {
         this.optionsVendedor = [...this.optionsVendedor, ...res.data];
       })
       .catch(() => {
@@ -168,12 +174,12 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
     getCliente()
-      .then(res => {
+      .then((res) => {
         this.optionsCliente = [...this.optionsCliente, ...res.data];
       })
       .catch(() => {
@@ -182,11 +188,11 @@ export default {
           {
             title: "Erro interno no servidor",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "danger" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "danger", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           }
         );
       });
-  }
+  },
 };
 </script>
 
@@ -203,6 +209,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.alinhamentoBtnVoltar {
+  margin-left: 60.5rem;
 }
 
 .arquivo {

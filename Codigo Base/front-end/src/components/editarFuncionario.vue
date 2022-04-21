@@ -7,6 +7,8 @@
         </b-col>
       </b-row>
 
+      <botao class="alinhamentoBtnVoltar" />
+
       <b-form @submit.prevent="handleSubmit">
         <b-row>
           <b-col>
@@ -103,15 +105,17 @@
 <script>
 import ModalCancelar from "@/components/modalCancelar";
 import ModalConfirmar from "@/components/modalConfirmar";
+import botao from "@/components/botaoVoltar";
 import {
   editarFuncionario,
-  buscarFuncionario
+  buscarFuncionario,
 } from "@/services/api/Funcionario";
 export default {
   name: "TelaLogin",
   components: {
     ModalCancelar,
-    ModalConfirmar
+    ModalConfirmar,
+    botao,
   },
   props: {},
   data() {
@@ -124,13 +128,13 @@ export default {
         { value: "", text: "Escolha um genero", disabled: true },
         { value: "M", text: "Masculino" },
         { value: "F", text: "Feminino" },
-        { value: "O", text: "Outro" }
+        { value: "O", text: "Outro" },
       ],
-      show: true
+      show: true,
     };
   },
   mounted() {
-    buscarFuncionario(this.$route.params.id).then(resp => {
+    buscarFuncionario(this.$route.params.id).then((resp) => {
       this.dados = resp.data;
     });
   },
@@ -154,7 +158,7 @@ export default {
           senha: this.dados.senha,
           telefone: this.dados.telefone,
           genero: this.dados.genero,
-          salario: this.dados.salario
+          salario: this.dados.salario,
         },
         this.dados._id
       )
@@ -163,11 +167,10 @@ export default {
           this.$bvToast.toast("Funcionario editado com sucesso", {
             title: "Sucesso na edição",
             autoHideDelay: 5000, //Tempo em milissegundos para o toast desaparecer
-            variant: "success" //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
+            variant: "success", //Danger é a variante vermelha. Variantes: default, primary, secondary, danger,warning, success e info
           });
-          this.mudarRota();
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
     },
@@ -186,8 +189,9 @@ export default {
       this.dados.telefone = "";
       this.dados.salario = "";
       this.$bvModal.hide("modal-cancelar");
-    }
-  }
+      this.mudarRota();
+    },
+  },
 };
 </script>
 
@@ -204,6 +208,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.alinhamentoBtnVoltar {
+  margin-left: 60.5rem;
 }
 
 .arquivo {
