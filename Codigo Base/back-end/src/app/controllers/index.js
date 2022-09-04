@@ -31,8 +31,7 @@ router.post('/adicionarCliente', (req, res) => {
       res.status(200).send(clientes);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possivel adicionar um cliente!' });
     });
 });
 
@@ -43,7 +42,7 @@ router.get('/listarClientes', (req, res) => {
       res.send(clientes);
     })
     .catch((error) => {
-      console.log('Erro!');
+      res.status(400).send({ error: 'Não foi possível listar os clientes!' });
     });
 });
 
@@ -54,7 +53,7 @@ router.get('/buscarCliente/:clienteId', (req, res) => {
       res.send(clientes);
     })
     .catch((error) => {
-      console.log('Erro!');
+      res.status(400).send({ error: 'Não foi possível buscar o cliente!' });
     });
 });
 
@@ -70,8 +69,7 @@ router.put('/editarCliente/:clienteId', (req, res) => {
       res.status(200).send(cliente);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível editar o cliente!' });
     });
 });
 
@@ -87,13 +85,11 @@ router.delete('/excluirCliente/:clienteId', (req, res) => {
           res.status(200).send({ message: 'Cliente removido com sucesso' });
         })
         .catch((error) => {
-          console.log('Erro!');
-          res.status(400).send({ error: 'Ocorreu um erro!' });
+          res.status(400).send({ error: 'Não foi possível excluir o cliente!' });
         });
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível encontrar o cliente com o id passado!' });
     });
 });
 
@@ -105,8 +101,7 @@ router.post('/adicionarFuncionario', (req, res) => {
       res.status(200).send(funcionarios);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível adicionar o funcionário!' });
     });
 });
 
@@ -117,7 +112,7 @@ router.get('/listarFuncionarios', (req, res) => {
       res.send(funcionarios);
     })
     .catch((error) => {
-      console.log('Erro!');
+      res.status(400).send({ error: 'Não foi possível listar os funcionários!' });
     });
 });
 
@@ -128,7 +123,7 @@ router.get('/buscarFuncionario/:funcionarioId', (req, res) => {
       res.send(funcionarios);
     })
     .catch((error) => {
-      console.log('Erro!');
+      res.status(400).send({ error: 'Não foi possível buscar o funcionário!' });
     });
 });
 
@@ -144,8 +139,7 @@ router.put('/editarFuncionario/:funcionarioId', (req, res) => {
       res.status(200).send(funcionarios);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível editar o funcionário!' });
     });
 });
 
@@ -161,13 +155,11 @@ router.delete('/excluirFuncionario/:funcionarioId', (req, res) => {
           res.status(200).send({ message: 'Funcionário removido com sucesso' });
         })
         .catch((error) => {
-          console.log('Erro!');
-          res.status(400).send({ error: 'Ocorreu um erro!' });
+          res.status(400).send({ error: 'Não foi possível excluir o funcionário!' });
         });
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível encontrar o id do funcionário para ser excluído!' });
     });
 });
 
@@ -179,8 +171,7 @@ router.post('/adicionarVenda', (req, res) => {
       res.status(200).send(vendas);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível adicionar a venda!' });
     });
 });
 
@@ -211,7 +202,9 @@ router.get('/listarVendas', (req, res) => {
       });
       res.send(vendas);
     })
-    .catch((error) => {});
+    .catch((error) => {
+      res.status(400).send({ error: 'Não foi possível listar as vendas!' });
+    });
 });
 
 router.get('/buscarVenda/:vendaId', (req, res) => {
@@ -221,7 +214,7 @@ router.get('/buscarVenda/:vendaId', (req, res) => {
       res.send(vendas);
     })
     .catch((error) => {
-      console.log('Erro!');
+      res.status(400).send({ error: 'Não foi possível buscar a venda!' });
     });
 });
 
@@ -237,8 +230,7 @@ router.put('/editarVenda/:vendaId', (req, res) => {
       res.status(200).send(vendas);
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível editar a venda!' });
     });
 });
 
@@ -249,8 +241,7 @@ router.delete('/excluirVenda/:vendaId', (req, res) => {
       res.status(200).send({ message: 'Venda removida com sucesso' });
     })
     .catch((error) => {
-      console.log('Erro!');
-      res.status(400).send({ error: 'Ocorreu um erro!' });
+      res.status(400).send({ error: 'Não foi possível excluir a venda!' });
     });
 });
 export default router;
